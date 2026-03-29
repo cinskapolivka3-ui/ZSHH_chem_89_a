@@ -1,11 +1,11 @@
 id,team,name,sample_description,location,photo_url,result_commentary
-1,team_rivers,River Sample A,Water from main stream,Bridge near school,photos/river1.jpg,pH measured at 7.2 indicating neutral conditions. Low turbidity observed.
-2,team_rivers,River Sample B,Water from tributary,Behind old mill,,High sediment content. pH slightly acidic at 6.8. Photo missing due to camera malfunction.
-3,team_parks,Pond Sample,Stagnant water,Central Park lake,photos/pond1.jpg,Algae presence significant. pH 8.1. High oxygen levels measured.
-4,team_parks,Fountain Sample,Decorative fountain,Main square,photos/fountain.jpg,Chlorine detected. pH neutral. Clean appearance.
-5,team_street,Rainwater,Collected after storm,School courtyard,,Acidic pH 5.4 likely due to air pollution. No photo available.
-6,team_street,Puddle,Urban runoff,Bus station,,Oily sheen observed. High conductivity. Sample contaminated.
-7,team_garden,Well Water,Private well,Old village,photos/well.jpg,Mineral rich. Hard water confirmed. pH 7.5.
-8,team_garden,Rain Barrel,Collected rainwater,Community garden,photos/rain.jpg,Soft water. Slightly acidic. Suitable for plants.
-9,team_industrial,Drain Sample,Factory outlet,Industrial zone,,Heavy metal traces detected. pH 4.2. Critical contamination levels.
-10,team_industrial,Cooling Water,Power plant discharge,Riverbank north,,Elevated temperature. pH normal. Thermal pollution observed.
+1,Olej,River Sample A,Water from main stream,Bridge near school,photos/river1.jpg,pH measured at 7.2 indicating neutral conditions. Low turbidity observed.
+2,Olej,River Sample B,Water from tributary,Behind old mill,,High sediment content. pH slightly acidic at 6.8. Photo missing due to camera malfunction.
+3,Olej,Pond Sample,Stagnant water,Central Park lake,photos/pond1.jpg,Algae presence significant. pH 8.1. High oxygen levels measured.
+4,Voda,Fountain Sample,Decorative fountain,Main square,photos/fountain.jpg,Chlorine detected. pH neutral. Clean appearance.
+5,Voda,Rainwater,Collected after storm,School courtyard,,Acidic pH 5.4 likely due to air pollution. No photo available.
+6,Voda+Cukr,Puddle,Urban runoff,Bus station,,Oily sheen observed. High conductivity. Sample contaminated.
+7,Voda+Cukr,Well Water,Private well,Old village,photos/well.jpg,Mineral rich. Hard water confirmed. pH 7.5.
+8,Ředidlo,Rain Barrel,Collected rainwater,Community garden,photos/rain.jpg,Soft water. Slightly acidic. Suitable for plants.
+9,Ředidlo,Drain Sample,Factory outlet,Industrial zone,,Heavy metal traces detected. pH 4.2. Critical contamination levels.
+10,Kyselina citrónová,Cooling Water,Power plant discharge,Riverbank north,,Elevated temperature. pH normal. Thermal pollution observed.
