@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Science Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <!-- ###### TEAM NAME - Zde změňte název vašeho týmu -->
+        <h1>Team Alpha - Chemistry Explorer</h1>
+        <p class="subtitle">Interactive Sample Database</p>
+    </header>
+
+    <main class="container">
+        <!-- Loading state, dokud se nenačte CSV -->
+        <div id="loading" class="status-message">Loading samples...</div>
+        
+        <!-- ###### GALLERY CONTAINER - Zde se zobrazí všechny karty -->
+        <div id="gallery" class="gallery-grid"></div>
+        
+        <!-- Error message, když se něco pokazí -->
+        <div id="error" class="status-message error" style="display: none;">
+            Error loading data. Check console (F12) or verify data.csv format.
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <!-- ###### FOOTER - Zde můžete přidat jména členů týmu -->
+        <p>Created by Team [Your Name] | 8th Grade Science Project 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
