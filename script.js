@@ -12,7 +12,7 @@ const CONFIG = {
         Barva_kytky: 'Barva kytky',
         Lokalita: 'Lokalita',
         Doba_extrakce: 'Doba extrakce',
-        Barva_papírku: 'Barva papírku',
+        Barva_papirku: 'Barva papírku',
         pH: 'pH',
         Barva_extraktu: 'Barva extraktu',
         
