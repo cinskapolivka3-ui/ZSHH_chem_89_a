@@ -51,7 +51,7 @@ body {
    ============================================ */
 .site-header {
     background-color: var(--primary-color);
-    color: light green;
+    color: white;
     padding: 2rem 1rem;
     text-align: center;
     margin-bottom: 2rem;
