@@ -1,11 +1,71 @@
-id,team,name,sample_description,location,photo_url,result_commentary
-1,Olej,River Sample A,Water from main stream,Bridge near school,photos/youarefucked.jpg,pH measured at 7.2 indicating neutral conditions. Low turbidity observed.
-2,Olej,River Sample B,Water from tributary,Behind old mill,,High sediment content. pH slightly acidic at 6.8. Photo missing due to camera malfunction.
-3,Olej,Pond Sample,Stagnant water,Central Park lake,photos/pond1.jpg,Algae presence significant. pH 8.1. High oxygen levels measured.
-4,Voda,Fountain Sample,Decorative fountain,Main square,photos/fountain.jpg,Chlorine detected. pH neutral. Clean appearance.
-5,Voda,Rainwater,Collected after storm,School courtyard,,Acidic pH 5.4 likely due to air pollution. No photo available.
-6,Voda+Cukr,Puddle,Urban runoff,Bus station,,Oily sheen observed. High conductivity. Sample contaminated.
-7,Voda+Cukr,Well Water,Private well,Old village,photos/well.jpg,Mineral rich. Hard water confirmed. pH 7.5.
-8,Ředidlo,Rain Barrel,Collected rainwater,Community garden,photos/rain.jpg,Soft water. Slightly acidic. Suitable for plants.
-9,Ředidlo,Drain Sample,Factory outlet,Industrial zone,,Heavy metal traces detected. pH 4.2. Critical contamination levels.
-10,Kyselina citrónová,Cooling Water,Power plant discharge,Riverbank north,,Elevated temperature. pH normal. Thermal pollution observed.
+ID,Rozpouštědlo,Barva kytky,Lokalita,Doba extrakce,Barva papírku,          pH,Barva extraktu
+ID,X,Olej,X,X,X,bílá,7,Nažloutlá
+ID,X,K. citronová,X,X,X,bílá,1,Čirá
+ID,X,Soda,X,X,X,bílá,10,Čirá
+ID,X,Voda,X,X,X,bílá,6,Čirá
+ID,X,Cukr,X,X,X,bílá,5,Čirá
+ID,X,Ocet,X,X,X,bílá,2,Nažloutlá
+ID,X,Butylalkohol,X,X,X,bílá,6,Čirá
+ID,Spirea Japonica,Olej,Růžová,Neznámá lokace,22m40s,čirá,7,Zelená
+ID,Spirea Japonica,K. citronová,Růžová,Neznámá lokace,2m55s,růžová,1,Naorandžovělá
+ID,Spirea Japonica,Soda,Růžová,Neznámá lokace,3m10s,šedozelená,10,Tm. zelená
+ID,Spirea Japonica,Voda,Růžová,Neznámá lokace,3m40s,šedá,6,Nazelenalá
+ID,Spirea Japonica,Cukr,Růžová,Neznámá lokace,6m55s,šedá,5,Nazelenalá
+ID,Spirea Japonica,Ocet,Růžová,Neznámá lokace,2min30s,růžová,2,Naorandžovělá
+ID,Spirea Japonica,Butylalkohol,Růžová,Neznámá lokace,4min44s,bílá,6,Nazelenalá
+ID,Zlatý déšť,Olej,Žlutý,Keř u plotu,22m40s,bílo žlutá,6,Žlutá
+ID,Zlatý déšť,K. citronová,Žlutý,Keř u plotu,2m55s,sv. růžová,1,Žlutá
+ID,Zlatý déšť,Soda,Žlutý,Keř u plotu,3m10s,žlutá,10,Tm. žlutá
+ID,Zlatý déšť,Voda,Žlutý,Keř u plotu,3m40s,sv.žlutá,5,Tm. žlutá
+ID,Zlatý déšť,Cukr,Žlutý,Keř u plotu,6m55s,oranžová,4,Tm. žlutá
+ID,Zlatý déšť,Ocet,Žlutý,Keř u plotu,2m30s,tm. bílá,2,Sv. žlutá
+ID,Zlatý déšť,Butylalkohol,Žlutý,Keř u plotu,4m44s,bílá,6,Žlutá
+ID,Šeřík,Olej,Růžová-bílá,Keř u silnice / v rašeliništi,22m40s,sv. zeléná,6,Čirá
+ID,Šeřík,k. citronová,Růžová-bílá,Keř u silnice / v rašeliništi,2m55s,sv. modrá,1,Čirá
+ID,Šeřík,Soda,Růžová-bílá,Keř u silnice / v rašeliništi,3m10s,sv. žlutá,10,Čirá
+ID,Šeřík,Voda,Růžová-bílá,Keř u silnice / v rašeliništi,3m40s,bílá,5,Čirá
+ID,Šeřík,Cukr,Růžová-bílá,Keř u silnice / v rašeliništi,6m55s,zelená,4,Čirá
+ID,Šeřík,Ocet,Růžová-bílá,Keř u silnice / v rašeliništi,2min30s,sv. modrá,2,Čirá
+ID,Šeřík,Butylalkohol,Růžová-bílá,Keř u silnice / v rašeliništi,4min44s,zelená,6,Čirá
+ID,Fialka,Olej,Fialová,Všude/U Cheposu,22m40s,Světle fialová,6,S. Fialová
+ID,Fialka,K. citronová,Fialová,Všude/U Cheposu,2m55s,Růžová,1,Růžová
+ID,Fialka,Soda,Fialová,Všude/U Cheposu,3m10s,Světle fialová,9,S. Modrá
+ID,Fialka,Voda,Fialová,Všude/U Cheposu,3m40s,Modrá,6,T. Modrá
+ID,Fialka,Cukr,Fialová,Všude/U Cheposu,6m55s,Světle modrá,4,Fialová
+ID,Fialka,Ocet,Fialová,Všude/U Cheposu,2min30s,Růžová,2,T. Růžová
+ID,Fialka,Butylalkohol,Fialová,Všude/U Cheposu,4min44s,Čirá,6,S. Fialová
+ID,Planá růže listy,Olej,Světle zelená,Trávník u cesty,22m40s,Bílá,6,Zelená
+ID,Planá růže listy,K. citronová,Světle zelená,Trávník u cesty,2m55s,Světle růžová,1,Sv. zelená
+ID,Planá růže listy,Soda,Světle zelená,Trávník u cesty,3m10s,Světle modrá,9,Tm. zelená
+ID,Planá růže listy,Voda,Světle zelená,Trávník u cesty,3m40s,Světle modrá,6,Zelená
+ID,Planá růže listy,Cukr,Světle zelená,Trávník u cesty,6m55s,Bílá,4,Zelená
+ID,Planá růže listy,Ocet,Světle zelená,Trávník u cesty,2min30s,Bílá,2,Sv. zelená
+ID,Planá růže listy,Butylalkohol,Světle zelená,Trávník u cesty,4min44s,Bílá,6,Zelená
+ID,Ladoňka Sibiřská,Olej,Modrá,Všude/U Cheposu,22m40s,Bílá,6,Čirá
+ID,Ladoňka Sibiřská,K. citronová,Modrá,Všude/U Cheposu,2m55s,Růžová,1,Růžová
+ID,Ladoňka Sibiřská,Soda,Modrá,Všude/U Cheposu,3m10s,Sv. modrá,10,Sv. modrá
+ID,Ladoňka Sibiřská,Voda,Modrá,Všude/U Cheposu,3m40s,Namodralá,6,Čirá
+ID,Ladoňka Sibiřská,Cukr,Modrá,Všude/U Cheposu,6m55s,Namodralá,4,Čirá
+ID,Ladoňka Sibiřská,Ocet,Modrá,Všude/U Cheposu,2min30s,Růžová,3,Narůžovělá
+ID,Ladoňka Sibiřská,Butylalkohol,Modrá,Všude/U Cheposu,4min44s,Namodralá,6,Čirá
+ID,Bílá fialka,Olej,Bílá,U Hűbnerů na zahradě,22m40s,Bílá,6,Čirá
+ID,Bílá fialka,K. citronová,Bílá,U Hűbnerů na zahradě,2m55s,Bílá,1,Světle žlutá
+ID,Bílá fialka,Soda,Bílá,U Hűbnerů na zahradě,3m10s,Bílá,10,Čirá
+ID,Bílá fialka,Voda,Bílá,U Hűbnerů na zahradě,3m40s,Bílá,6,Světle žlutá
+ID,Bílá fialka,Cukr,Bílá,U Hűbnerů na zahradě,6m55s,Bílá,4,Světle žlutá
+ID,Bílá fialka,Ocet,Bílá,U Hűbnerů na zahradě,2min30s,Bílá,3,Čirá
+ID,Bílá fialka,Butylalkohol,Bílá,U Hűbnerů na zahradě,4min44s,Bílá,6,Čirá
+ID,Neznámý,Olej,Růžová / Fialová,Po cestě do TESCA,22m40s,Světle žlutá,7,Čirá
+ID,Neznámý,K. citronová,Růžová / Fialová,Po cestě do TESCA,2m55s,Světle růžová,1,Červená
+ID,Neznámý,Soda,Růžová / Fialová,Po cestě do TESCA,3m10s,Žluto zelená,10,Světle fialová 
+ID,Neznámý,Voda,Růžová / Fialová,Po cestě do TESCA,3m40s,Světle zeleno žlutá,6,Světle vínová 
+ID,Neznámý,Cukr,Růžová / Fialová,Po cestě do TESCA,6m55s,Světle řůžová,4,Světle vínová 
+ID,Neznámý,Ocet,Růžová / Fialová,Po cestě do TESCA,2min30s,Světle řůžovoučká,3,Červená
+ID,Neznámý,Butylalkohol,Růžová / Fialová,Po cestě do TESCA,4min44s,Nezabarvená,6,Čirá
+ID,Puškinie Ladoňkovitá,Olej,Bílá s modrými proužky, Po cestě na kruháč u plotu,22m40s,Nezabarvená,7,Nažloutlá
+ID,Puškinie Ladoňkovitá,K. citronová,Bílá s modrými proužky, Po cestě na kruháč u plotu,2m55s,Nezabarvená,1,Čirá
+ID,Puškinie Ladoňkovitá,Soda,Bílá s modrými proužky, Po cestě na kruháč u plotu,3m10s,Nezabarvená,10,Čirá
+ID,Puškinie Ladoňkovitá,Voda,Bílá s modrými proužky, Po cestě na kruháč u plotu,3m40s,Nezabarvená,6,Čirá
+ID,Puškinie Ladoňkovitá,Cukr,Bílá s modrými proužky, Po cestě na kruháč u plotu,6m55s,Nezabarvená,4,Čirá
+ID,Puškinie Ladoňkovitá,Ocet,Bílá s modrými proužky, Po cestě na kruháč u plotu,2min30s,Nezabarvená,3,Nažloutlá
+ID,Puškinie Ladoňkovitá,Butylalkohol,Bílá s modrými proužky, Po cestě na kruháč u plotu,4min44s,Nezabarvená,6,Čir
