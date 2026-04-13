@@ -1,12 +1,12 @@
 /**
  * ###### CONFIGURATION - KONFIGURACE
  * Pokud změníte názvy sloupců v CSV souboru, upravte názvy zde!
- * Například pokud přejmenujete "photo_url" na "image", změňte photo: 'image'
+ * Například pokud přejmenujete "Subjekt" na "Team", změňte Subjekt: 'Team'
  */
 const CONFIG = {
-    // Názvy sloupců v CSV souboru (musí přesně odpovídat hlavičce!)
+    // Názvy sloupců v CSV souboru (musí přesně odpovídat hlavičce v data.csv!)
     fields: {
-       ID: 'ID',
+        ID: 'ID',
         Subjekt: 'Subjekt',
         Rozpouštědlo: 'Rozpouštědlo',
         Barva_kytky: 'Barva kytky',
@@ -15,39 +15,42 @@ const CONFIG = {
         Barva_papirku: 'Barva papírku',
         pH: 'pH',
         Barva_extraktu: 'Barva extraktu',
-        
-    
-    // ###### DATA SOURCE - Cesta k datům (pokud přejmenujete soubor, změňte zde)
+        // Pokud máš v CSV sloupec pro obrázek, přidej ho sem, např:
+        // Foto: 'Foto URL'
+    }, // <-- TADY CHYBĚLA TATO ZÁVORKA!
+
+    // ###### DATA SOURCE - Cesta k datům
     dataUrl: 'data.csv',
     
     // ###### PLACEHOLDER TEXT - Text, když chybí fotografie
-    noPhotoText: '📷'
+    noPhotoText: '⚗️' // Změnil jsem na křivuli, hodí se k chemii :)
 };
 
 /**
  * ###### CSV PARSER - Funkce pro zpracování CSV
- * Tato funkce převede text CSV na pole objektů (záznamů)
  */
 function parseCSV(csvText) {
-    // Rozdělíme text na řádky (každý řádek = jeden vzorek)
+    // Rozdělíme text na řádky a odstraníme prázdné řádky na začátku/konci
     const lines = csvText.trim().split('\n');
     
+    if (lines.length < 2) return []; // Žádná data nebo jen hlavička
+
     // První řádek jsou názvy sloupců (header)
     const headers = lines[0].split(',').map(h => h.trim());
     
-    // ###### FIELD MAPPING - Zde se přiřazují data podle názvů sloupců
-    // Pokud chcete přidat nový sloupec, přidejte ho do CONFIG.fields výše
     const result = [];
     
     for (let i = 1; i < lines.length; i++) {
-        // Přeskočíme prázdné řádky
+        // Přeskočíme prázdné řádky uvnitř souboru
         if (!lines[i].trim()) continue;
         
+        // Jednoduché rozdělení čárkou (pozor na čárky v textu buněk!)
         const values = lines[i].split(',');
         const record = {};
         
-        // Naplníme objekt daty podle názvů sloupců
+        // Naplníme objekt daty
         headers.forEach((header, index) => {
+            // Přiřadíme hodnotu k hlavičce, pokud hodnota neexistuje, dáme prázdný řetězec
             record[header] = values[index] ? values[index].trim() : '';
         });
         
@@ -59,53 +62,63 @@ function parseCSV(csvText) {
 
 /**
  * ###### CREATE CARD - Vytvoří HTML pro jednu kartu
- * Zde můžete měnit strukturu karty (přidat nové elementy, změnit pořadí)
+ * OPRAVENO: Nyní používá pole definovaná v CONFIG.fields
  */
 function createCard(sample) {
-    // Získáme data podle konfigurace nahoře
-    const id = sample[CONFIG.fields.ID] || '';
-    const team = sample[CONFIG.fields.Subjekt] || 'unknown';
-    const name = sample[CONFIG.fields.name] || 'Unnamed Sample';
-    const description = sample[CONFIG.fields.description] || '';
-    const location = sample[CONFIG.fields.location] || '';
-    const photoUrl = sample[CONFIG.fields.photo];
-    const commentary = sample[CONFIG.fields.commentary] || 'No results recorded.';
+    // Získáme data PODLE NÁZVŮ definovaných v CONFIG.fields
+    const id = sample[CONFIG.fields.ID] || 'No ID';
+    const subjekt = sample[CONFIG.fields.Subjekt] || 'Neznámý';
     
-    // ###### PHOTO HANDLING - Zpracování chybějící fotografie
-    // Pokud photoUrl existuje a není prázdný, použijeme img tag, jinak placeholder
+    // Protože v původním CONFIG chybělo 'name', použijeme jako název Barvu kytky + Rozpouštědlo
+    const kytka = sample[CONFIG.fields.Barva_kytky] || 'Neznámá rostlina';
+    const rozpoustedlo = sample[CONFIG.fields.Rozpouštědlo] || '?';
+    const cardTitle = `${kytka} v ${rozpoustedlo}`;
+
+    const lokalita = sample[CONFIG.fields.Lokalita] || 'Neznámá lokalita';
+    const ph = sample[CONFIG.fields.pH] || '?';
+    const extrakce = sample[CONFIG.fields.Doba_extrakce] || '?';
+    const barvaExtraktu = sample[CONFIG.fields.Barva_extraktu] || 'neznámá';
+    
+    // V tvém CONFIG chybělo pole pro fotku, definuji ho zde lokálně pro ukázku.
+    // Pokud chceš fotky, přidej sloupec 'Foto' do CSV a do CONFIG.fields.
+    const photoUrl = sample['Foto']; 
+
+    // ###### PHOTO HANDLING
     let imageHtml;
     if (photoUrl && photoUrl.trim() !== '') {
-        // ###### IMAGE SIZE - Zde můžete změnit velikost obrázku (width/height)
-        imageHtml = `<img src="${photoUrl}" alt="${name}" class="card-image" loading="lazy">`;
+        imageHtml = `<img src="${photoUrl}" alt="${cardTitle}" class="card-image" loading="lazy">`;
     } else {
-        // Placeholder s prvním písmenem názvu vzorku
-        const initial = name.charAt(0).toUpperCase();
+        // Placeholder s ikonou
         imageHtml = `
             <div class="image-placeholder">
-                <span>${CONFIG.noPhotoText} ${initial}</span>
+                <span>${CONFIG.noPhotoText}</span>
             </div>
         `;
     }
     
-    // ###### TEAM CLASS - Přidáme třídu podle týmu pro případné barevné rozlišení
-    const teamClass = `team-${team.toLowerCase().replace(/\s+/g, '_')}`;
+    // ###### TEAM CLASS
+    const subjektClass = `team-${subjekt.toLowerCase().replace(/\s+/g, '_')}`;
     
-    // Vytvoříme HTML strukturu karty
-    // ###### CARD STRUCTURE - Zde měňte HTML strukturu karty (pořadí prvků)
+    // ###### CARD STRUCTURE - Upravená struktura pro zobrazení chemických dat
     return `
-        <article class="sample-card ${teamClass}" data-id="${id}" data-team="${team}">
+        <article class="sample-card ${subjektClass}" data-id="${id}">
             <div class="card-image-container">
                 ${imageHtml}
             </div>
             <div class="card-content">
-                <span class="team-badge">${team}</span>
-                <h2 class="card-title">${name}</h2>
-                <p class="card-location">📍 ${location}</p>
-                <p class="card-description">${description}</p>
+                <span class="team-badge">${subjekt}</span>
+                <h2 class="card-title">${cardTitle}</h2>
+                <p class="card-metadata">📍 <b>Lokalita:</b> ${lokalita}</p>
+                <p class="card-metadata">⏱️ <b>Doba extrakce:</b> ${extrakce}</p>
+                
                 <div class="result-box">
-                    <div class="result-label">Results</div>
-                    <div class="result-text">${commentary}</div>
+                    <div class="result-label">Výsledky analýzy</div>
+                    <div class="result-grid">
+                        <div class="result-item"><strong>pH:</strong> ${ph}</div>
+                        <div class="result-item"><strong>Barva:</strong> ${barvaExtraktu}</div>
+                    </div>
                 </div>
+                <small class="sample-id">ID: ${id}</small>
             </div>
         </article>
     `;
@@ -117,52 +130,57 @@ function createCard(sample) {
 function renderGallery(data) {
     const gallery = document.getElementById('gallery');
     const loading = document.getElementById('loading');
-    const error = document.getElementById('error');
     
-    // ###### FILTERING - Zde můžete přidat filtrování (např. pouze vlastní tým)
-    // Příklad: const filtered = data.filter(item => item.team === 'team_a');
+    if (!gallery) {
+        console.error("Chyba: V HTML chybí element s id='gallery'!");
+        return;
+    }
+
     const filtered = data; // Zatím zobrazujeme vše
     
     if (filtered.length === 0) {
-        gallery.innerHTML = '<p class="status-message">No samples found.</p>';
-        loading.style.display = 'none';
+        gallery.innerHTML = '<p class="status-message">Nebyla nalezena žádná data. Zkontrolujte data.csv.</p>';
+        if (loading) loading.style.display = 'none';
         return;
     }
-    
-    // ###### SORTING - Zde můžete přidat řazení (např. podle názvu)
-    // filtered.sort((a, b) => a.name.localeCompare(b.name));
     
     // Vygenerujeme HTML pro všechny karty a vložíme do galerie
     const cardsHtml = filtered.map(sample => createCard(sample)).join('');
     gallery.innerHTML = cardsHtml;
     
     // Skryjeme loading zprávu
-    loading.style.display = 'none';
+    if (loading) loading.style.display = 'none';
 }
 
 /**
  * ###### LOAD DATA - Načte data ze souboru
  */
 async function loadData() {
+    const loading = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
+
     try {
         const response = await fetch(CONFIG.dataUrl);
         
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`Nepodařilo se načíst soubor ${CONFIG.dataUrl} (Status: ${response.status})`);
         }
         
         const csvText = await response.text();
         const data = parseCSV(csvText);
         
-        console.log('###### DEBUG - Načteno vzorků:', data.length); // Zobrazí v konzoli počet vzorků
-        console.log('První vzorek:', data[0]); // Zobrazí strukturu prvního vzorku pro kontrolu
+        console.log('###### DEBUG - Načteno vzorků:', data.length);
+        if (data.length > 0) console.log('První vzorek pro kontrolu:', data[0]);
         
         renderGallery(data);
         
     } catch (error) {
-        console.error('###### ERROR - Chyba při načítání dat:', error);
-        document.getElementById('loading').style.display = 'none';
-        document.getElementById('error').style.display = 'block';
+        console.error('###### ERROR - Chyba:', error);
+        if (loading) loading.style.display = 'none';
+        if (errorEl) {
+            errorEl.style.display = 'block';
+            errorEl.innerText = `Chyba při načítání dat: ${error.message}`;
+        }
     }
 }
 
@@ -171,8 +189,4 @@ async function loadData() {
  */
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
-    
-    // ###### CONSOLE TIP - Tip pro studenty do konzole (F12)
-    console.log('💡 TIP: Otevřete tento soubor v editoru a zkuste změnit CONFIG.fields výše!');
-    console.log('💡 TIP: Zkuste v CSS změnit --primary-color na jinou barvu!');
 });
