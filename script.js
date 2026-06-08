@@ -29,7 +29,7 @@ function createCard(sample) {
             <div class="card-content">
                 <span class="team-badge">${team}</span>
                 
-                <h2 class="card-title">${id}</h2>
+
                 
                 <div class="info-row">
                     <span class="label">Barva kytky:</span>
